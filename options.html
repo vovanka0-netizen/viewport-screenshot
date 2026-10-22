@@ -1,0 +1,42 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Viewport Screenshot options</title>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 16px; min-width: 420px; color: #222; }
+  label { display: block; margin: 12px 0 4px; font-weight: 600; }
+  input { width: 100%; box-sizing: border-box; padding: 6px 8px; font: inherit; }
+  .hint, #preview { color: #666; font-size: 12px; margin-top: 4px; }
+  #preview { font-family: ui-monospace, monospace; word-break: break-all; }
+  code { background: #f2f2f2; padding: 0 3px; border-radius: 3px; }
+  button { margin-top: 14px; padding: 6px 14px; font: inherit; }
+  #saved { margin-left: 8px; color: #2e7d32; }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1e1e1e; color: #ddd; }
+    input { background: #2a2a2a; color: #ddd; border: 1px solid #555; }
+    code { background: #333; }
+    .hint, #preview { color: #999; }
+  }
+</style>
+
+<label for="folder">Folder inside Downloads</label>
+<input id="folder" placeholder="Screenshots">
+<div class="hint">Use <code>/</code> for subfolders, e.g. <code>Screenshots/Project</code>. Leave empty to save straight to Downloads.</div>
+
+<label for="template">File name</label>
+<input id="template">
+<div class="hint">
+  <code>%host</code> site, <code>%title</code> page title,
+  <code>%Y</code> <code>%m</code> <code>%d</code> date, <code>%H</code> <code>%M</code> <code>%S</code> time.
+  <code>.png</code> is added for you.
+</div>
+
+<div id="preview"></div>
+
+<button id="save">Save</button><span id="saved"></span>
+
+<p class="hint">Shortcut: <strong id="shortcut"></strong>. To change it, open
+<code>vivaldi://extensions/shortcuts</code> (Vivaldi) or <code>chrome://extensions/shortcuts</code> (Chrome, Edge, Brave).
+Clicking the toolbar icon also saves a screenshot.</p>
+
+<script src="names.js"></script>
+<script src="options.js"></script>
